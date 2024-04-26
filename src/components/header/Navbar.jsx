@@ -5,8 +5,7 @@ const Navbar = () => {
     const routes = [
         { name: 'Home', path: "/", id: 1 },
         { name: 'Add Tourists Spot', path: "/add-tourists-spot", id: 4 },
-        { name: 'Home', path: "/", id: 2 },
-        { name: 'Home', path: "/", id: 3 },
+        { name: `User's Spots list`, path: "/users-spots-list", id: 5 },
     ]
     const mapedRoutes = routes.map(route => <li key={route.id}><NavLink to={route.path}>{route.name}</NavLink></li>)
 
