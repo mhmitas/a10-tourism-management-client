@@ -5,9 +5,13 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import { router } from './router/router';
+import TouristSpotsProvider from './provider/TouristSpotsProveder';
+// import { TouristSpotsContext } from './provider/TouristSpotsProveder';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <RouterProvider router={router}></RouterProvider>
-  </React.StrictMode>,
+    <TouristSpotsProvider>
+      <RouterProvider router={router}></RouterProvider>
+    </TouristSpotsProvider>
+  </React.StrictMode>
 )
