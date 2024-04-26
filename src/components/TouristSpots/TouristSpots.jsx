@@ -3,14 +3,15 @@ import { TouristSpotsContext } from '../../provider/TouristSpotsProveder';
 import TouristSpotsCard from './TouristSpotsCard';
 
 const TouristSpots = () => {
+    const { serverLink } = useContext(TouristSpotsContext)
     const [touristSpots, setTouristSpots] = useState([])
     const [loading, setLoading] = useState(false)
     useEffect(() => {
         setLoading(true)
-        fetch('http://localhost:5000/tourist-spots')
+        fetch(`${serverLink}/tourist-spots`)
             .then(res => res.json())
             .then(data => {
-                console.log(data);
+                // console.log(data);
                 setTouristSpots(data)
                 setLoading(false)
             })

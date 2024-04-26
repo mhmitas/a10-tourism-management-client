@@ -1,7 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
+import { TouristSpotsContext } from '../../provider/TouristSpotsProveder';
 
 const AddTouristsSpot = () => {
+    const { serverLink } = useContext(TouristSpotsContext)
+
     const {
         register,
         handleSubmit,
@@ -9,7 +12,7 @@ const AddTouristsSpot = () => {
 
     const onSubmit = (data, event) => {
         console.log(data)
-        fetch('http://localhost:5000/tourist-spots', {
+        fetch(`${serverLink}/tourist-spots`, {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
