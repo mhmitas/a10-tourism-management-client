@@ -9,6 +9,7 @@ const TouristSpotsCard = ({ touristSpot }) => {
                 <div className="card-body">
                     <h2 className="card-title">{tourist_spot_name}</h2>
                     <p>{country_name}</p>
+                    <p>Author email: {touristSpot.email}</p>
                     <div className="card-actions justify-end">
                         <button className="btn btn-primary">View Details</button>
                     </div>

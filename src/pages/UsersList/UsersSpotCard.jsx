@@ -22,6 +22,7 @@ const UsersSpotCard = ({ usersSpot }) => {
                     <h2 className="card-title">{tourist_spot_name}</h2>
                     <p>Country: {country_name}</p>
                     <p>Spot Id: {usersSpot._id}</p>
+                    <p>User email: {usersSpot.email}</p>
                     <p>Cost: {average_cost}</p>
                     <p>Short Description: {short_description}</p>
                     <div className="card-actions justify-end">

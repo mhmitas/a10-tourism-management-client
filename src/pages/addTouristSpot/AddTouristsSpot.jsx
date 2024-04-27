@@ -1,9 +1,11 @@
 import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import { TouristSpotsContext } from '../../provider/TouristSpotsProveder';
+import { AuthContext } from '../../provider/AuthProvider';
 
 const AddTouristsSpot = () => {
     const { serverLink } = useContext(TouristSpotsContext)
+    const { user } = useContext(AuthContext)
 
     const {
         register,
@@ -11,7 +13,9 @@ const AddTouristsSpot = () => {
     } = useForm()
 
     const onSubmit = (data, event) => {
+        if (user === null) { return }
         console.log(data)
+        data.email = user.email
         fetch(`${serverLink}/tourist-spots`, {
             method: 'POST',
             headers: {
@@ -116,6 +120,7 @@ const AddTouristsSpot = () => {
                             <input
                                 {...register("image")}
                                 type="text"
+                                defaultValue="https://i.ibb.co/YBpPX7j/travelars.png"
                                 required
                                 className="input input-bordered w-full col-span-2" />
                         </div>

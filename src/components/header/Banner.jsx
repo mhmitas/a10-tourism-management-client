@@ -10,14 +10,13 @@ const Banner = () => {
     return (
         <>
             <div className='rounded-xl relative' >
-
                 <Swiper
                     className='h-96 md:h-[600px]'
                     slidesPerView={1}
                     spaceBetween={30}
                     loop={true}
                     autoplay={{
-                        delay: 3000,
+                        delay: 7000,
                         disableOnInteraction: false,
                     }}
                     pagination={{
@@ -28,7 +27,7 @@ const Banner = () => {
                 >
                     <SwiperSlide
                         className='bg-cover bg-no-repeat bg-bottom'
-                        style={{ backgroundImage: 'url(https://i.ibb.co/KKNJRPS/pexels-nurseryart-346885.jpg)' }}
+                        style={{ backgroundImage: 'url(https://i.ibb.co/0VSWsqt/earth.jpg)' }}
                     ></SwiperSlide>
                     <SwiperSlide
                         className='bg-cover bg-no-repeat bg-center'
@@ -39,7 +38,7 @@ const Banner = () => {
                         style={{ backgroundImage: 'url(https://i.ibb.co/YX751Ds/boats.jpg)' }}
                     ></SwiperSlide>
                 </Swiper>
-                <div className='text-2xl md:text-3xl p-3 md:p-8 lg:text-5xl text-slate-100 md:w-2/3 absolute bottom-3 left-3 z-10 shadow-2xl bg-slate-900 rounded-sm bg-opacity-20 mr-3 font-bold'
+                <div className='text-2xl md:text-3xl p-3 md:p-8 lg:text-5xl text-slate-100 md:w-2/3 absolute bottom-5 left-5 z-10 shadow-2xl bg-slate-900 rounded-sm bg-opacity-20 mr-3 font-bold'
                 >
                     RedKnot: Your travel community, wherever you roam. <br />- Explore, Share, Inspire ...
                 </div>
