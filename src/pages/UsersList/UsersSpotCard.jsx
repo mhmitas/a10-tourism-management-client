@@ -25,7 +25,13 @@ const UsersSpotCard = ({ usersSpot }) => {
                     <p>Cost: {average_cost}</p>
                     <p>Short Description: {short_description}</p>
                     <div className="card-actions justify-end">
+                        <button
+                            className="btn btn-primary"
+                            onClick={() => console.log('please update', usersSpot._id)}
+                        >Update</button>
+
                         <button onClick={() => handleDelete(usersSpot._id)} className="btn btn-primary">Delete</button>
+
                     </div>
                 </div>
             </div>
