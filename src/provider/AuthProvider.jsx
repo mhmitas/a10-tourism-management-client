@@ -1,4 +1,4 @@
-import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, } from 'firebase/auth';
+import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, } from 'firebase/auth';
 import React, { createContext, useEffect, useState } from 'react';
 import auth from '../firebase/firebase.config';
 
@@ -6,7 +6,8 @@ import auth from '../firebase/firebase.config';
 export const AuthContext = createContext(null)
 
 const AuthProvider = ({ children }) => {
-    const [user, setUser] = useState(null)
+    const [user, setUser] = useState(null);
+    const [authLoading, setAuthLoading] = useState(true)
 
     function createUser(email, password) {
         return createUserWithEmailAndPassword(auth, email, password)
@@ -17,9 +18,14 @@ const AuthProvider = ({ children }) => {
     function popUpSignIn(provider) {
         return signInWithPopup(auth, provider)
     }
+    function signOutUser() {
+        return signOut(auth)
+    }
+
     useEffect(() => {
         const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
             setUser(currentUser)
+            setAuthLoading(false)
             console.log('OnAuthStageChange:', currentUser);
         })
         return () => {
@@ -27,14 +33,16 @@ const AuthProvider = ({ children }) => {
         }
     }, [])
 
-    const getUser = auth.currentUser;
 
     const authInfo = {
         user,
+        authLoading,
+        setAuthLoading,
         setUser,
         createUser,
         signInUser,
         popUpSignIn,
+        signOutUser,
     }
 
     return (

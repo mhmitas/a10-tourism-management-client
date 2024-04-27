@@ -13,7 +13,10 @@ const AddTouristsSpot = () => {
     } = useForm()
 
     const onSubmit = (data, event) => {
-        if (user === null) { return }
+        if (user === null) {
+            console.log('Age Sign in kore asun');
+            return;
+        }
         console.log(data)
         data.email = user.email
         fetch(`${serverLink}/tourist-spots`, {

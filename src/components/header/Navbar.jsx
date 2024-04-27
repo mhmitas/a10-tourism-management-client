@@ -1,13 +1,24 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link, NavLink } from 'react-router-dom';
+import { AuthContext } from '../../provider/AuthProvider';
 
 const Navbar = () => {
+    const { user, authLoading, signOutUser } = useContext(AuthContext)
+
     const routes = [
         { name: 'Home', path: "/", id: 1 },
         { name: 'Add Tourists Spot', path: "/add-tourists-spot", id: 4 },
-        { name: `User's Spots list`, path: "/users-spots-list", id: 5 },
+        { name: `My list`, path: "/users-spots-list", id: 5 },
     ]
     const mapedRoutes = routes.map(route => <li key={route.id}><NavLink to={route.path}>{route.name}</NavLink></li>)
+
+    function handleSignOut() {
+        signOutUser()
+            .then(() => console.log('Sign out success'))
+            .catch(error => {
+                console.log(error);
+            })
+    }
 
     return (
         <div className="navbar bg-base-100 shadow-xl *:z-50">
@@ -30,32 +41,32 @@ const Navbar = () => {
                     {mapedRoutes}
                 </ul>
             </div>
-            <div className="navbar-end">
-                <div className="dropdown dropdown-end">
-                    <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
-                        <div className="w-10 rounded-full">
-                            <img alt="Tailwind CSS Navbar component" src="https://i.ibb.co/RNs2wnC/profile-pic-random.png" />
+            <div className="navbar-end mr-4">
+                {authLoading ?
+                    <span class="loading loading-ring loading-md"></span>
+                    :
+                    user ?
+                        <div className="dropdown dropdown-end">
+                            <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
+                                <div className="w-10 rounded-full">
+                                    <img alt="Tailwind CSS Navbar component" src="https://i.ibb.co/RNs2wnC/profile-pic-random.png" />
+                                </div>
+                            </div>
+                            <ul tabIndex={0} className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52 ">
+                                <li><a>Settings</a></li>
+                                <li><button onClick={handleSignOut}>Sign out</button></li>
+                            </ul>
                         </div>
-                    </div>
-                    <ul tabIndex={0} className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52 ">
-                        <li>
-                            <a className="justify-between">
-                                Profile
-                                <span className="badge">New</span>
-                            </a>
-                        </li>
-                        <li><a>Settings</a></li>
-                        <li><a>Logout</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <Link to="/sign-in">
-                        <button className='btn btn-ghost font-semibold text-primary'>Sign in</button>
-                    </Link>
-                    <Link to="/sign-up">
-                        <button className='btn btn-ghost font-semibold text-primary'>Sign up</button>
-                    </Link>
-                </div>
+                        :
+                        <div>
+                            <Link to="/sign-in">
+                                <button className='btn btn-ghost font-semibold text-primary'>Sign in</button>
+                            </Link>
+                            <Link to="/sign-up">
+                                <button className='btn btn-ghost font-semibold text-primary'>Sign up</button>
+                            </Link>
+                        </div>
+                }
             </div>
         </div>
     );
