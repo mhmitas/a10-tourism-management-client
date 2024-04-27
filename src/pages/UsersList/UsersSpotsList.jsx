@@ -8,18 +8,13 @@ const UsersSpotsList = () => {
     const [loading, setLoading] = useState(false)
     useEffect(() => {
         setLoading(true)
-        try {
-            fetch(`${serverLink}/tourist-spots`)
-                .then(res => res.json())
-                .then(data => {
-                    // console.log(data);
-                    setMySpotsList(data)
-                    setLoading(false)
-                })
-        } catch (error) {
-            console.log(error);
-        }
-
+        fetch(`${serverLink}/tourist-spots`)
+            .then(res => res.json())
+            .then(data => {
+                // console.log(data);
+                setMySpotsList(data)
+                setLoading(false)
+            })
     }, [])
 
     return (
