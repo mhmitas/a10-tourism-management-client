@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import { FaGoogle } from 'react-icons/fa';
 import { FaXTwitter } from 'react-icons/fa6';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../provider/AuthProvider';
 import { GoogleAuthProvider } from 'firebase/auth';
 
@@ -11,11 +11,17 @@ const SignIn = () => {
     const { register, handleSubmit } = useForm()
     const { signInUser, popUpSignIn } = useContext(AuthContext)
 
+    const location = useLocation()
+    console.log(location);
+    const navigate = useNavigate()
+
+
     function onSubmit(data, event) {
         signInUser(data.email, data.password)
             .then(result => {
                 console.log(result.user);
                 event.target.reset();
+                location.state ? navigate(location.state) : navigate("/");
             })
             .catch(error => {
                 console.log(error);

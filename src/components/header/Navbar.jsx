@@ -43,7 +43,7 @@ const Navbar = () => {
             </div>
             <div className="navbar-end mr-4">
                 {authLoading ?
-                    <span class="loading loading-ring loading-md"></span>
+                    <span className="loading loading-ring loading-md"></span>
                     :
                     user ?
                         <div className="dropdown dropdown-end">

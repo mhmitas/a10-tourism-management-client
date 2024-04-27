@@ -5,6 +5,9 @@ import AddTouristsSpot from "../pages/addTouristSpot/AddTouristsSpot";
 import UsersSpotsList from "../pages/UsersList/UsersSpotsList";
 import SignIn from "../pages/login/Login";
 import SignUp from "../pages/signUp/SignUp";
+import PrivetRoute from "../routes/privet/PrivetRoute";
+import HelloPage from "../routes/privet/HelloPage";
+import PrivetRoute2 from "../routes/privet/PrivetRoute2";
 
 export const router = createBrowserRouter([
     {
@@ -21,7 +24,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: "/users-spots-list",
-                element: <UsersSpotsList></UsersSpotsList>
+                element: <PrivetRoute><UsersSpotsList></UsersSpotsList></PrivetRoute>
             },
             {
                 path: "/sign-in",
@@ -30,6 +33,10 @@ export const router = createBrowserRouter([
             {
                 path: "/sign-up",
                 element: <SignUp></SignUp>
+            },
+            {
+                path: "/hello",
+                element: <PrivetRoute2><HelloPage></HelloPage></PrivetRoute2>
             },
         ]
     },
