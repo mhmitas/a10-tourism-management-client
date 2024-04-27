@@ -1,18 +1,53 @@
 import React from 'react';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
+import { Autoplay, Navigation, Pagination } from 'swiper/modules';
+
 
 const Banner = () => {
     return (
-        <div className="hero min-h-[500px]" style={{ backgroundImage: 'url(https://daisyui.com/images/stock/photo-1507358522600-9f71e620c44e.jpg)' }}>
-            <div className="hero-overlay bg-opacity-60"></div>
-            <div className="hero-content text-center text-neutral-content">
-                <div className="max-w-md">
-                    <h1 className="mb-5 text-5xl font-bold">Hello there</h1>
-                    <p className="mb-5">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
-                    <button className="btn btn-primary">Get Started</button>
+        <>
+            <div className='rounded-xl relative' >
+
+                <Swiper
+                    className='h-96 md:h-[600px]'
+                    slidesPerView={1}
+                    spaceBetween={30}
+                    loop={true}
+                    autoplay={{
+                        delay: 3000,
+                        disableOnInteraction: false,
+                    }}
+                    pagination={{
+                        clickable: true,
+                    }}
+                    // navigation={true}
+                    modules={[Pagination, Navigation, Autoplay]}
+                >
+                    <SwiperSlide
+                        className='bg-cover bg-no-repeat bg-bottom'
+                        style={{ backgroundImage: 'url(https://i.ibb.co/KKNJRPS/pexels-nurseryart-346885.jpg)' }}
+                    ></SwiperSlide>
+                    <SwiperSlide
+                        className='bg-cover bg-no-repeat bg-center'
+                        style={{ backgroundImage: 'url(https://i.ibb.co/zR6kD88/ha-long.jpg)' }}
+                    ></SwiperSlide>
+                    <SwiperSlide
+                        className='bg-cover bg-no-repeat bg-center'
+                        style={{ backgroundImage: 'url(https://i.ibb.co/YX751Ds/boats.jpg)' }}
+                    ></SwiperSlide>
+                </Swiper>
+                <div className='text-2xl md:text-3xl p-3 md:p-8 lg:text-5xl text-slate-100 md:w-2/3 absolute bottom-3 left-3 z-10 shadow-2xl bg-slate-900 rounded-sm bg-opacity-20 mr-3 font-bold'
+                >
+                    RedKnot: Your travel community, wherever you roam. <br />- Explore, Share, Inspire ...
                 </div>
             </div>
-        </div>
+        </>
     );
 };
 
 export default Banner;
+
+// https://i.ibb.co/zR6kD88/ha-long.jpg

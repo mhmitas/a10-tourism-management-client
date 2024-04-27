@@ -49,8 +49,12 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div>
-                    <button className='btn btn-ghost font-bold text-primary'>Login</button>
-                    <button className='btn btn-ghost font-bold text-primary'>Sign up</button>
+                    <Link to="/sign-in">
+                        <button className='btn btn-ghost font-semibold text-primary'>Sign in</button>
+                    </Link>
+                    <Link to="/sign-up">
+                        <button className='btn btn-ghost font-semibold text-primary'>Sign up</button>
+                    </Link>
                 </div>
             </div>
         </div>

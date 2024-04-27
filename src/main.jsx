@@ -6,12 +6,15 @@ import {
 } from "react-router-dom";
 import { router } from './router/router';
 import TouristSpotsProvider from './provider/TouristSpotsProveder';
+import AuthProvider from './provider/AuthProvider';
 // import { TouristSpotsContext } from './provider/TouristSpotsProveder';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <TouristSpotsProvider>
-      <RouterProvider router={router}></RouterProvider>
-    </TouristSpotsProvider>
+    <AuthProvider>
+      <TouristSpotsProvider>
+        <RouterProvider router={router}></RouterProvider>
+      </TouristSpotsProvider>
+    </AuthProvider>
   </React.StrictMode>
 )
