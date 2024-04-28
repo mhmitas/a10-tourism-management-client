@@ -13,8 +13,8 @@ import ViewDetail from "../pages/viewDetail/ViewDetail";
 import UpdateSpot from "../pages/updateSpot/UpdateSpot";
 
 
-const serverLink = 'http://localhost:5000'
-// const serverLink = 'https://tourism-management-project.vercel.app';
+// const serverLink = 'http://localhost:5000'
+const serverLink = 'https://tourism-management-project.vercel.app';
 
 
 export const router = createBrowserRouter([

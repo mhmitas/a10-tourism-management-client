@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import { TouristSpotsContext } from '../../provider/TouristSpotsProveder';
 import { useForm } from 'react-hook-form';
+import toast from 'react-hot-toast';
 
 const UpdateSpot = () => {
     const loadedSpot = useLoaderData()
@@ -14,7 +15,7 @@ const UpdateSpot = () => {
     } = useForm()
 
     const onSubmit = (data) => {
-        console.log(data)
+        // console.log(data)
         fetch(`${serverLink}/tourist-spots/${loadedSpot._id}`, {
             method: 'put',
             headers: {
@@ -25,9 +26,8 @@ const UpdateSpot = () => {
             .then(res => res.json())
             .then(data => {
                 console.log(data);
-                if (data.insertedId) {
-                    console.log('Tourist Spot added successfully')
-                    event.target.reset()
+                if (data.modifiedCount > 0) {
+                    toast.success('Tourist Spot Updated')
                 }
             })
     }
