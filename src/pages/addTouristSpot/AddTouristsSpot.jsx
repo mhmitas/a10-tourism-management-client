@@ -3,6 +3,7 @@ import { useForm } from 'react-hook-form';
 import { TouristSpotsContext } from '../../provider/TouristSpotsProveder';
 import { AuthContext } from '../../provider/AuthProvider';
 import auth from '../../firebase/firebase.config';
+import toast from 'react-hot-toast';
 
 const AddTouristsSpot = () => {
     const { serverLink } = useContext(TouristSpotsContext)
@@ -14,7 +15,9 @@ const AddTouristsSpot = () => {
     } = useForm()
 
     const onSubmit = (data, event) => {
-        console.log(data)
+        // console.log(data)
+        if (!user.email) { return }
+        data.email = user.email
         fetch(`${serverLink}/tourist-spots`, {
             method: 'POST',
             headers: {
@@ -24,9 +27,9 @@ const AddTouristsSpot = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data);
+                // console.log(data);
                 if (data.insertedId) {
-                    console.log('Tourist Spot added successfully')
+                    toast.success('Tourist Spot added successfully')
                     event.target.reset()
                 }
             })
@@ -112,25 +115,16 @@ const AddTouristsSpot = () => {
                                 required
                                 className="input input-bordered w-full" />
                         </div>
-                        <div className="form-control">
+                        {/* <div className="form-control">
                             <label className="label">
                                 <span className="label-text">User Name</span>
                             </label>
                             <input
                                 {...register("user_name")}
                                 type="text"
+                                required
                                 className="input input-bordered w-full col-span-2" />
-                        </div>
-                        <div className="form-control">
-                            <label className="label">
-                                <span className="label-text">User Email</span>
-                            </label>
-                            <input
-                                {...register("email")}
-                                defaultValue={auth.currentUser.email}
-                                type="text"
-                                className="input input-bordered w-full col-span-2" />
-                        </div>
+                        </div> */}
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Image URL</span>

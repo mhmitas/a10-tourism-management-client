@@ -15,7 +15,7 @@ const Banner = () => {
                     slidesPerView={1}
                     loop={true}
                     autoplay={{
-                        delay: 7000,
+                        delay: 4000,
                         disableOnInteraction: false,
                     }}
                     pagination={{
