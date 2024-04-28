@@ -19,7 +19,7 @@ const TouristSpots = () => {
     return (
         <div className='relative min-h-96'>
             {loading ? <div className=' absolute left-1/2 top-1/2'><span className="loading loading-spinner text-primary loading-lg"></span></div> : ''}
-            <div className='grid md:grid-cols-2 lg:grid-cols-4 gap-3 my-16'>
+            <div className='p-3 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 my-16'>
                 {
                     touristSpots.map(spot => <TouristSpotsCard key={spot._id} touristSpot={spot}></TouristSpotsCard>)
                 }

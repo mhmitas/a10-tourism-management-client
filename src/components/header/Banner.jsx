@@ -13,7 +13,6 @@ const Banner = () => {
                 <Swiper
                     className='h-96 md:h-[600px]'
                     slidesPerView={1}
-                    spaceBetween={30}
                     loop={true}
                     autoplay={{
                         delay: 7000,

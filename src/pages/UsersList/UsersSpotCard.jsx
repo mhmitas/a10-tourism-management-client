@@ -16,8 +16,8 @@ const UsersSpotCard = ({ usersSpot }) => {
 
     return (
         <>
-            <div className="card w-96 bg-base-100 shadow-xl mx-auto mb-4">
-                <figure><img src={image} alt={tourist_spot_name} /></figure>
+            <div className="card max-w-md bg-base-100 shadow-xl mb-4 mx-auto rounded-sm">
+                <figure><img className='' src={image} alt={tourist_spot_name} /></figure>
                 <div className="card-body">
                     <h2 className="card-title">{tourist_spot_name}</h2>
                     <p>Country: {country_name}</p>

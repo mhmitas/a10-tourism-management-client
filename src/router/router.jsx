@@ -8,6 +8,7 @@ import SignUp from "../pages/signUp/SignUp";
 import PrivetRoute from "../routes/privet/PrivetRoute";
 import HelloPage from "../routes/privet/HelloPage";
 import PrivetRoute2 from "../routes/privet/PrivetRoute2";
+import AllTouristsSpot from "../pages/allTouristsSpot/AllTouristsSpot";
 
 export const router = createBrowserRouter([
     {
@@ -20,7 +21,11 @@ export const router = createBrowserRouter([
             },
             {
                 path: "/add-tourists-spot",
-                element: <AddTouristsSpot></AddTouristsSpot>
+                element: <PrivetRoute><AddTouristsSpot></AddTouristsSpot></PrivetRoute>
+            },
+            {
+                path: "/all-tourist-spots",
+                element: <AllTouristsSpot></AllTouristsSpot>
             },
             {
                 path: "/users-spots-list",
