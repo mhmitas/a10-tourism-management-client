@@ -5,6 +5,7 @@ import { FaXTwitter } from 'react-icons/fa6';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../provider/AuthProvider';
 import { GoogleAuthProvider } from 'firebase/auth';
+import toast from 'react-hot-toast';
 
 const SignIn = () => {
     const googleProvider = new GoogleAuthProvider()
@@ -22,6 +23,7 @@ const SignIn = () => {
                 console.log(result.user);
                 event.target.reset();
                 location.state ? navigate(location.state) : navigate("/");
+                toast.success('Sign in Success')
             })
             .catch(error => {
                 console.log(error);
@@ -31,6 +33,8 @@ const SignIn = () => {
         popUpSignIn(provider)
             .then(result => {
                 console.log(result.user);
+                location.state ? navigate(location.state) : navigate("/");
+                toast.success('Sign in Success')
             })
             .catch(error => {
                 console.log(error);
