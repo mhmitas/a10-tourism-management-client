@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const TouristSpotsCard = ({ touristSpot }) => {
-    const { image, tourist_spot_name, country_name, average_cost, location, total_visitor_per_year, travel_time, email, } = touristSpot
+    const { image, tourist_spot_name, country_name, average_cost, location, total_visitor_per_year, travel_time, } = touristSpot
     return (
         <>
             <div className=" rounded-sm shadow-md bg-base-100">
@@ -15,8 +15,10 @@ const TouristSpotsCard = ({ touristSpot }) => {
                         <p><strong>Average cost: </strong><span className='badge'>${average_cost}</span></p>
                         <p><strong>Total VisitorPer Year: </strong>{total_visitor_per_year}</p>
                         <p><strong>Travel Time: </strong>{travel_time}</p>
+                        <p>By: {touristSpot.email}</p>
                     </div>
-                    <button className="btn btn-primary">View Detail</button>
+                    <Link to={`/view-detail/${touristSpot._id}`}><button className="btn w-full btn-primary">View Detail</button></Link>
+
                 </div>
             </div>
         </>

@@ -19,7 +19,7 @@ const UsersSpotCard = ({ usersSpot, handleDelete }) => {
                     <Link to={`/view-detail/${usersSpot._id}`}>
                         <button className="btn btn-primary btn-sm ml-2"><FaEye className='text-xl' /></button>
                     </Link>
-                    <Link to={''}>
+                    <Link to={`/update-spot/${usersSpot._id}`}>
                         <button className="btn btn-primary btn-sm ml-2"><MdEdit className='text-xl' /></button>
                     </Link>
                     <button onClick={() => handleDelete(usersSpot._id)} className="btn btn-primary hover:btn-error btn-sm ml-2"><MdDeleteOutline className='text-xl' /></button>
