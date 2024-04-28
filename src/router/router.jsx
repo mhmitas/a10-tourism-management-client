@@ -9,6 +9,10 @@ import PrivetRoute from "../routes/privet/PrivetRoute";
 import HelloPage from "../routes/privet/HelloPage";
 import PrivetRoute2 from "../routes/privet/PrivetRoute2";
 import AllTouristsSpot from "../pages/allTouristsSpot/AllTouristsSpot";
+import ViewDetail from "../pages/viewDetail/ViewDetail";
+
+
+const serverLink = 'http://localhost:5000'
 
 export const router = createBrowserRouter([
     {
@@ -30,6 +34,11 @@ export const router = createBrowserRouter([
             {
                 path: "/users-spots-list",
                 element: <PrivetRoute><UsersSpotsList></UsersSpotsList></PrivetRoute>
+            },
+            {
+                path: "/view-detail/:id",
+                element: <PrivetRoute><ViewDetail></ViewDetail></PrivetRoute>,
+                loader: ({ params }) => fetch(`${serverLink}/tourist-spots/${params.id}`)
             },
             {
                 path: "/sign-in",
