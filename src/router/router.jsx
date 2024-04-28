@@ -11,6 +11,7 @@ import PrivetRoute2 from "../routes/privet/PrivetRoute2";
 import AllTouristsSpot from "../pages/allTouristsSpot/AllTouristsSpot";
 import ViewDetail from "../pages/viewDetail/ViewDetail";
 import UpdateSpot from "../pages/updateSpot/UpdateSpot";
+import Profile from "../pages/profile/Profile";
 
 
 // const serverLink = 'http://localhost:5000'
@@ -37,6 +38,10 @@ export const router = createBrowserRouter([
             {
                 path: "/users-spots-list",
                 element: <PrivetRoute><UsersSpotsList></UsersSpotsList></PrivetRoute>
+            },
+            {
+                path: "/profile",
+                element: <PrivetRoute><Profile></Profile></PrivetRoute>
             },
             {
                 path: "/view-detail/:id",

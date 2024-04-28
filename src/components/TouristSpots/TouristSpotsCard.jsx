@@ -8,7 +8,7 @@ const TouristSpotsCard = ({ touristSpot }) => {
             <div className=" rounded-sm shadow-md bg-base-100">
                 <img src={image} alt="" className="object-cover object-center w-full rounded-t-sm h-72 0" />
                 <div className="flex flex-col justify-between p-6 space-y-8">
-                    <div className="space-y-2">
+                    <div className="space-y-1">
                         <h2 className="card-title text-2xl">{tourist_spot_name}</h2>
                         <p>{country_name}</p>
                         <p><strong>Location: </strong>{location}</p>
