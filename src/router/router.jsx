@@ -10,6 +10,7 @@ import HelloPage from "../routes/privet/HelloPage";
 import PrivetRoute2 from "../routes/privet/PrivetRoute2";
 import AllTouristsSpot from "../pages/allTouristsSpot/AllTouristsSpot";
 import ViewDetail from "../pages/viewDetail/ViewDetail";
+import UpdateSpot from "../pages/updateSpot/UpdateSpot";
 
 
 const serverLink = 'http://localhost:5000'
@@ -40,6 +41,11 @@ export const router = createBrowserRouter([
             {
                 path: "/view-detail/:id",
                 element: <PrivetRoute><ViewDetail></ViewDetail></PrivetRoute>,
+                loader: ({ params }) => fetch(`${serverLink}/tourist-spots/${params.id}`)
+            },
+            {
+                path: "/update-spot/:id",
+                element: <PrivetRoute><UpdateSpot></UpdateSpot></PrivetRoute>,
                 loader: ({ params }) => fetch(`${serverLink}/tourist-spots/${params.id}`)
             },
             {

@@ -20,7 +20,6 @@ const UsersSpotsList = () => {
                 setMySpotsList(data)
                 setLoading(false)
             })
-        console.log(user?.email);
     }, [])
 
     return (

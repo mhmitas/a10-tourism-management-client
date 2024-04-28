@@ -1,5 +1,7 @@
 import React, { useContext } from 'react';
 import { TouristSpotsContext } from '../../provider/TouristSpotsProveder';
+import auth from '../../firebase/firebase.config';
+import { Link } from 'react-router-dom';
 
 const UsersSpotCard = ({ usersSpot }) => {
     const { serverLink } = useContext(TouristSpotsContext)
@@ -21,18 +23,12 @@ const UsersSpotCard = ({ usersSpot }) => {
                 <div className="card-body">
                     <h2 className="card-title">{tourist_spot_name}</h2>
                     <p>Country: {country_name}</p>
-                    <p>Spot Id: {usersSpot._id}</p>
-                    <p className='font-semibold'>User email: <span className='text-primary'>{usersSpot.email}</span></p>
+                    {/* <p>Spot Id: {usersSpot._id}</p> */}
                     <p>Cost: {average_cost}</p>
                     <p>Short Description: {short_description}</p>
                     <div className="card-actions justify-end">
-                        <button
-                            className="btn btn-primary"
-                            onClick={() => console.log('please update', usersSpot._id)}
-                        >Update</button>
-
+                        <Link to={`/update-spot/${usersSpot._id}`}><button className="btn btn-primary">Update</button></Link>
                         <button onClick={() => handleDelete(usersSpot._id)} className="btn btn-primary">Delete</button>
-
                     </div>
                 </div>
             </div>
@@ -41,3 +37,13 @@ const UsersSpotCard = ({ usersSpot }) => {
 };
 
 export default UsersSpotCard;
+
+// {auth.currentUser &&
+//     auth.currentUser.email === email ?
+//     <button
+//         className="btn btn-primary"
+//         onClick={() => console.log('please update', usersSpot._id)}
+//     >Update</button>
+//     :
+//     ''
+// }
