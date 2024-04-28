@@ -8,7 +8,7 @@ const TouristSpots = () => {
     const [loading, setLoading] = useState(false)
     useEffect(() => {
         setLoading(true)
-        fetch(`${serverLink}/tourist-spots`)
+        fetch(`${serverLink}/tourist-spots/limit/${8}`)
             .then(res => res.json())
             .then(data => {
                 // console.log(data);
@@ -17,9 +17,12 @@ const TouristSpots = () => {
             })
     }, [])
     return (
-        <div className='relative min-h-96'>
+        <div className='relative min-h-96 my-10 p-3 lg:p-8'>
+            <div className='py-8 text-2xl font-bold'>
+                <h3>Find best Spots for you</h3>
+            </div>
             {loading ? <div className=' absolute left-1/2 top-1/2'><span className="loading loading-spinner text-primary loading-lg"></span></div> : ''}
-            <div className='p-3 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 my-16'>
+            <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3'>
                 {
                     touristSpots.map(spot => <TouristSpotsCard key={spot._id} touristSpot={spot}></TouristSpotsCard>)
                 }

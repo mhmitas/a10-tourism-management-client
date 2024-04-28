@@ -39,7 +39,7 @@ const AllTouristsSpot = () => {
                     </select>
                 </div>
             </div>
-            <div className='md:p-3 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 my-10'>
+            <div className='p-3 lg:p-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 my-10'>
                 {
                     touristSpots.map(spot => <TouristSpotsCard key={spot._id} touristSpot={spot}></TouristSpotsCard>)
                 }

@@ -24,10 +24,10 @@ const UsersSpotsList = () => {
     }, [])
 
     return (
-        <div className='relative min-h-96'>
+        <div className='relative min-h-96 p-3 lg:p-8 '>
             <h3 className='text-3xl font-bold text-center mt-10'>My Tourist Spots List</h3>
             {loading && <div className=' absolute left-1/2 top-1/2'><span className="loading loading-spinner text-primary loading-lg"></span></div>}
-            <div className='md:p-3 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 gap-3 my-10'>
+            <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 my-10'>
                 {
                     mySpotsList.map(spot => <UsersSpotCard key={spot._id} usersSpot={spot}></UsersSpotCard>)
                 }
