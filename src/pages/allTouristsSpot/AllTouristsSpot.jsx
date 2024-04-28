@@ -20,7 +20,7 @@ const AllTouristsSpot = () => {
         <div className='relative min-h-96'>
             {loading ? <div className=' absolute left-1/2 top-1/2'><span className="loading loading-spinner text-primary loading-lg"></span></div> : ''}
             <div className='md:w-[70%] mx-auto p-3 space-y-3 my-6'>
-                <div className='px-6'>
+                <div className='px-6 mb-6'>
                     <h3 className='text-3xl font-bold text-center mb-2'>Browse All Tourist Spots List</h3>
                     <p className='text-center'>Discover hidden destinations, explore curated itineraries, and find travel resources tailored to your interests.</p>
                 </div>
@@ -34,7 +34,7 @@ const AllTouristsSpot = () => {
                 </div>
                 <div className='flex justify-center'>
                     <select className="select rounded-sm select-bordered w-full max-w-56">
-                        <option disabled selected>Short By</option>
+                        <option hidden>Short By</option>
                         <option>Average const</option>
                     </select>
                 </div>

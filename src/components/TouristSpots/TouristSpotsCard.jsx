@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const TouristSpotsCard = ({ touristSpot }) => {
     const { image, tourist_spot_name, country_name } = touristSpot
@@ -11,7 +12,9 @@ const TouristSpotsCard = ({ touristSpot }) => {
                     <p>{country_name}</p>
                     <p className='font-semibold'>User email: <span className='text-primary'>{touristSpot.email}</span></p>
                     <div className="card-actions justify-end">
-                        <button className="btn btn-primary">View Details</button>
+                        <Link to={`/view-detail/${touristSpot._id}`}>
+                            <button className="btn btn-primary">View Details</button>
+                        </Link>
                     </div>
                 </div>
             </div>

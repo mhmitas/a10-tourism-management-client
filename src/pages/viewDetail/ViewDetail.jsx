@@ -1,9 +1,50 @@
 import React from 'react';
+import { useLoaderData } from 'react-router-dom';
 
 const ViewDetail = () => {
+    const loadedSpot = useLoaderData()
+    console.log(loadedSpot);
+    const { image, tourist_spot_name, country_name, average_cost, short_description, location, seasonality, total_visitor_per_year, travel_time, email, } = loadedSpot
+
     return (
-        <div>
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nisi ad iste, enim officiis consectetur facere obcaecati quis ipsam omnis doloremque totam perferendis odit minus in voluptate autem modi fuga eveniet laboriosam non odio culpa quo ipsum! Esse tempora sequi delectus repellendus, architecto quas quo adipisci libero, a assumenda perspiciatis, necessitatibus hic quia quisquam? Magnam placeat veritatis explicabo modi pariatur debitis ab? Placeat accusantium sed odio magnam ea dolore iure maxime nihil earum, doloribus, aperiam, assumenda hic labore veniam. Sapiente velit magni eum laboriosam beatae, ab consequatur adipisci, ullam veniam aspernatur blanditiis hic assumenda illum rerum quas sed voluptas necessitatibus alias. Provident, corrupti. Mollitia nobis officiis natus soluta, iure sunt id numquam ea rem rerum est sed reiciendis! Culpa itaque quod accusamus necessitatibus, quisquam reprehenderit aut qui quaerat? Corporis culpa vitae dolore natus? Quaerat repellendus suscipit alias tenetur quibusdam pariatur eius atque consequuntur velit, ea enim nulla odio voluptatem. Autem consequatur, quo ratione molestias nemo velit dicta consectetur consequuntur laudantium, doloribus dolorum voluptas aliquam corporis iusto blanditiis ab voluptates laboriosam! Iusto, iste nostrum? Tempora, iste, rem est magnam corrupti ullam tenetur natus ex omnis accusantium non accusamus dicta laboriosam hic voluptatibus, quasi repudiandae? Incidunt doloremque ea magni ipsa quod quas totam.
+        <div className=' px-3'>
+            <div className="card  bg-base-200 py-6 rounded-sm">
+                <figure><img className='lg:max-w-[70%]' src={image} alt="Album" /></figure>
+                <div className="card-body">
+                    <h2 className="text-3xl font-bold">{tourist_spot_name}</h2>
+                    <h2 className="card-title">{country_name}</h2>
+                    <p>{short_description}</p>
+                </div>
+            </div>
+            <div className="overflow-x-auto mb-16">
+                <table className="table md:w-1/2 lg:w-[50%]">
+                    <tbody>
+                        {/* row 1 */}
+                        <tr className='border border-base-300'>
+                            <th>Average cost</th>
+                            <td>{average_cost}</td>
+                        </tr>
+                        {/* row 2 */}
+                        <tr className="border border-base-300">
+                            <th>Location</th>
+                            <td>{location}</td>
+                        </tr>
+                        {/* row 3 */}
+                        <tr className='border border-base-300'>
+                            <th>Sesonality</th>
+                            <td>{seasonality}</td>
+                        </tr>
+                        <tr className='border border-base-300'>
+                            <th>Travel Time</th>
+                            <td>{travel_time}</td>
+                        </tr>
+                        <tr className='border border-base-300'>
+                            <th>Total Visitor Per Year</th>
+                            <td>{total_visitor_per_year}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
     );
 };
