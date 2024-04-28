@@ -16,6 +16,16 @@ const AllTouristsSpot = () => {
                 setLoading(false)
             })
     }, [])
+
+    function handleSort() {
+        fetch(`${serverLink}/tourist-spots/sortby`)
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                setTouristSpots(data)
+            })
+    }
+
     return (
         <div className='relative min-h-96'>
             {loading ? <div className=' absolute left-1/2 top-1/2'><span className="loading loading-spinner text-primary loading-lg"></span></div> : ''}
@@ -32,13 +42,12 @@ const AllTouristsSpot = () => {
                         </svg>
                     </label>
                 </div>
+
                 <div className='flex justify-center'>
-                    <select className="select rounded-sm select-bordered w-full max-w-56">
-                        <option hidden>Short By</option>
-                        <option>Average const</option>
-                    </select>
+                    <button onClick={handleSort} className='btn btn-info'>Sort By Average Cost</button>
                 </div>
             </div>
+
             <div className='p-3 lg:p-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 my-10'>
                 {
                     touristSpots.map(spot => <TouristSpotsCard key={spot._id} touristSpot={spot}></TouristSpotsCard>)

@@ -15,9 +15,11 @@ const AddTouristsSpot = () => {
     } = useForm()
 
     const onSubmit = (data, event) => {
-        // console.log(data)
-        if (!user.email) { return }
-        data.email = user.email
+        const cost = data.average_cost
+        const costNum = Number(cost)
+        data.average_cost = costNum;
+        data.email = user.email;
+        data.user_name = user?.displayName
         fetch(`${serverLink}/tourist-spots`, {
             method: 'POST',
             headers: {
@@ -80,7 +82,9 @@ const AddTouristsSpot = () => {
                                 <span className="label-text">Average Cost</span>
                             </label>
                             <input
-                                {...register("average_cost")}
+                                {...register("average_cost", {
+                                    valueAsNumber: true,
+                                })}
                                 type="number"
                                 required
                                 className="input input-bordered w-full" />
