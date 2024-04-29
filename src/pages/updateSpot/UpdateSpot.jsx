@@ -1,14 +1,14 @@
 import React, { useContext } from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { useLoaderData, useNavigate } from 'react-router-dom';
 import { TouristSpotsContext } from '../../provider/TouristSpotsProveder';
 import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
 
 const UpdateSpot = () => {
+    const navigate = useNavigate()
     const loadedSpot = useLoaderData()
     const { serverLink } = useContext(TouristSpotsContext)
     const { image, tourist_spot_name, country_name, average_cost, short_description, location, seasonality, total_visitor_per_year, travel_time, } = loadedSpot
-
     const {
         register,
         handleSubmit,
@@ -16,7 +16,10 @@ const UpdateSpot = () => {
 
     const onSubmit = (data) => {
         // console.log(data)
-        fetch(`${serverLink}/tourist-spots/${loadedSpot._id}`, {
+        const cost = data.average_cost
+        const costNum = Number(cost)
+        data.average_cost = costNum;
+        fetch(`${serverLink}/tourist-spots/update/${loadedSpot._id}`, {
             method: 'put',
             headers: {
                 'content-type': 'application/json'
@@ -25,9 +28,10 @@ const UpdateSpot = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data);
+                // console.log(data);
                 if (data.modifiedCount > 0) {
                     toast.success('Tourist Spot Updated')
+                    navigate(-1)
                 }
             })
     }

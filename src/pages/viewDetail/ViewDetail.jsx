@@ -3,7 +3,7 @@ import { useLoaderData } from 'react-router-dom';
 
 const ViewDetail = () => {
     const loadedSpot = useLoaderData()
-    console.log(loadedSpot);
+    // console.log(loadedSpot);
     const { image, tourist_spot_name, country_name, average_cost, short_description, location, seasonality, total_visitor_per_year, travel_time, email, } = loadedSpot
 
     return (

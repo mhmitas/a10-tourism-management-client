@@ -5,7 +5,7 @@ const Country = () => {
     const { serverLink } = useContext(TouristSpotsContext)
     const [countries, setCountries] = useState([])
     useEffect(() => {
-        fetch(`${serverLink}/tourist-spots/desh`)
+        //fetch(`${serverLink}/tourist-spots/countries/all`)
         // .then(res => res.json())
         // .then(data => {
         //     console.log(data);

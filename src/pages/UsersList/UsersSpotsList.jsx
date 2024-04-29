@@ -35,7 +35,7 @@ const UsersSpotsList = () => {
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`${serverLink}/tourist-spots/${id}`, {
+                fetch(`${serverLink}/tourist-spots/delete/${id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())

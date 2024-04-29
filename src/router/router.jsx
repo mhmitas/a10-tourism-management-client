@@ -14,8 +14,8 @@ import UpdateSpot from "../pages/updateSpot/UpdateSpot";
 import Profile from "../pages/profile/Profile";
 
 
-// const serverLink = 'http://localhost:5000'
-const serverLink = 'https://tourism-management-project.vercel.app';
+const serverLink = 'http://localhost:5000'
+// const serverLink = 'https://tourism-management-project.vercel.app';
 
 
 export const router = createBrowserRouter([
@@ -46,12 +46,12 @@ export const router = createBrowserRouter([
             {
                 path: "/view-detail/:id",
                 element: <PrivetRoute><ViewDetail></ViewDetail></PrivetRoute>,
-                loader: ({ params }) => fetch(`${serverLink}/tourist-spots/${params.id}`)
+                loader: ({ params }) => fetch(`${serverLink}/tourist-spots/detail/${params.id}`)
             },
             {
                 path: "/update-spot/:id",
                 element: <PrivetRoute><UpdateSpot></UpdateSpot></PrivetRoute>,
-                loader: ({ params }) => fetch(`${serverLink}/tourist-spots/${params.id}`)
+                loader: ({ params }) => fetch(`${serverLink}/tourist-spots/detail/${params.id}`)
             },
             {
                 path: "/sign-in",
