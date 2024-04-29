@@ -1,6 +1,17 @@
-import React from 'react';
+import React, { useContext, useEffect, useState } from 'react';
+import { TouristSpotsContext } from '../../provider/TouristSpotsProveder';
 
 const Country = () => {
+    const { serverLink } = useContext(TouristSpotsContext)
+    const [countries, setCountries] = useState([])
+    useEffect(() => {
+        fetch(`${serverLink}/tourist-spots/desh`)
+        // .then(res => res.json())
+        // .then(data => {
+        //     console.log(data);
+        // })
+    }, [])
+
     return (
         <div className='my-10'>
             <h3 className='text-2xl py-6 font-bold'>Best Countries to visit in South Aisa</h3>
