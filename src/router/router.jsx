@@ -6,12 +6,12 @@ import UsersSpotsList from "../pages/UsersList/UsersSpotsList";
 import SignIn from "../pages/login/Login";
 import SignUp from "../pages/signUp/SignUp";
 import PrivetRoute from "../routes/privet/PrivetRoute";
-import HelloPage from "../routes/privet/HelloPage";
-import PrivetRoute2 from "../routes/privet/PrivetRoute2";
 import AllTouristsSpot from "../pages/allTouristsSpot/AllTouristsSpot";
 import ViewDetail from "../pages/viewDetail/ViewDetail";
 import UpdateSpot from "../pages/updateSpot/UpdateSpot";
 import Profile from "../pages/profile/Profile";
+import SpotsOfCountry from "../pages/spotsOfCountry/SpotsOfCountry";
+import CountriesSpots from "../pages/spotsOfCountry/CountriesSpots";
 
 
 const serverLink = 'http://localhost:5000'
@@ -54,16 +54,17 @@ export const router = createBrowserRouter([
                 loader: ({ params }) => fetch(`${serverLink}/tourist-spots/detail/${params.id}`)
             },
             {
+                path: "/find-country-spots/:countryName",
+                element: <CountriesSpots></CountriesSpots>,
+                // loader: ({ params }) => fetch(`${serverLink}/tourist-spots/find-by-country/${params.countryName}`)
+            },
+            {
                 path: "/sign-in",
                 element: <SignIn></SignIn>
             },
             {
                 path: "/sign-up",
                 element: <SignUp></SignUp>
-            },
-            {
-                path: "/hello",
-                element: <PrivetRoute2><HelloPage></HelloPage></PrivetRoute2>
             },
         ]
     },

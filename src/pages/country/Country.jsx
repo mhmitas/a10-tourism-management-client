@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { TouristSpotsContext } from '../../provider/TouristSpotsProveder';
+import { Link } from 'react-router-dom';
 
 const Country = () => {
     const { serverLink } = useContext(TouristSpotsContext)
@@ -8,7 +9,7 @@ const Country = () => {
         fetch(`${serverLink}/tourist-spots/allCountries`)
             .then(res => res.json())
             .then(data => {
-                console.log(data);
+                // console.log(data);
                 setCountries(data)
             })
     }, [])
@@ -31,13 +32,15 @@ export default Country;
 function CountryCard({ countryData }) {
     return (
         <div className="max-w-96 shadow-md hover:shadow-2xl bg-base-100 rounded-sm cursor-pointer hover:scale-105">
-            <img src={countryData.image} alt="" className="w-full " />
-            <div className="flex flex-col justify-between p-6">
-                <div className="">
-                    <h2 className="text-xl font-bold tracking-wide my-1">{countryData.country_name}</h2>
-                    <p className="">{countryData.description.slice(0, 95)}</p>
+            <Link to={`/find-country-spots/${countryData.country_name}`}>
+                <img src={countryData.image} alt="" className="w-full " />
+                <div className="flex flex-col justify-between p-6">
+                    <div className="">
+                        <h2 className="text-xl font-bold tracking-wide my-1">{countryData.country_name}</h2>
+                        <p className="">{countryData.description.slice(0, 95)}</p>
+                    </div>
                 </div>
-            </div>
+            </Link>
         </div>
     )
 }
