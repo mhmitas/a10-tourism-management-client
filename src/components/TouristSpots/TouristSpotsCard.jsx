@@ -15,7 +15,7 @@ const TouristSpotsCard = ({ touristSpot }) => {
                         <p><strong>Average cost: </strong><span className='badge'>${average_cost}</span></p>
                         <p><strong>Total VisitorPer Year: </strong>{total_visitor_per_year}</p>
                         <p><strong>Travel Time: </strong>{travel_time}</p>
-                        <p><strong>Postted By:</strong> <span className='font-semibold'>{touristSpot.user_name}</span></p>
+                        <p><strong>Postted By:</strong> <span className='font-semibold'>{touristSpot.user_name || 'Not Mentioned'}</span></p>
                     </div>
                     <Link className='ml-auto' to={`/view-detail/${touristSpot._id}`}><button className="btn btn-sm btn-outline btn-primary">View Detail</button></Link>
 
