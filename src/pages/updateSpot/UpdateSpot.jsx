@@ -56,12 +56,15 @@ const UpdateSpot = () => {
                             <label className="label">
                                 <span className="label-text">Country Name</span>
                             </label>
-                            <input
-                                {...register("country_name")}
-                                type="text"
-                                required
-                                defaultValue={country_name}
-                                className="input input-bordered w-full" />
+                            <select {...register("country_name")} className="select select-bordered">
+                                <option className='hidden'>Select a Country</option>
+                                <option>Bangladesh</option>
+                                <option>Thiland</option>
+                                <option>Indonesia</option>
+                                <option>Malaysia</option>
+                                <option>Vietnam</option>
+                                <option>Cambodia</option>
+                            </select>
                         </div>
                         <div className="form-control">
                             <label className="label">

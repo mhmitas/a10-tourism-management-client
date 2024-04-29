@@ -57,7 +57,7 @@ const AddTouristsSpot = () => {
                                 className="input input-bordered w-full" />
                         </div>
 
-                        <div className="form-control">
+                        {/* <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Country Name</span>
                             </label>
@@ -66,7 +66,23 @@ const AddTouristsSpot = () => {
                                 type="text"
                                 required
                                 className="input input-bordered w-full" />
+                        </div> */}
+
+                        <div className="form-control">
+                            <label className="label">
+                                <span className="label-text">Country Name</span>
+                            </label>
+                            <select {...register("country_name")} className="select select-bordered">
+                                <option className='hidden'>Select a Country</option>
+                                <option>Bangladesh</option>
+                                <option>Thiland</option>
+                                <option>Indonesia</option>
+                                <option>Malaysia</option>
+                                <option>Vietnam</option>
+                                <option>Cambodia</option>
+                            </select>
                         </div>
+
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Loacation</span>
