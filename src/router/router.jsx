@@ -14,8 +14,8 @@ import SpotsOfCountry from "../pages/spotsOfCountry/SpotsOfCountry";
 import CountriesSpots from "../pages/spotsOfCountry/CountriesSpots";
 
 
-const serverLink = 'http://localhost:5000'
-// const serverLink = 'https://tourism-management-project.vercel.app';
+// const serverLink = 'http://localhost:5000'
+const serverLink = 'https://tourism-management-project.vercel.app';
 
 
 export const router = createBrowserRouter([
