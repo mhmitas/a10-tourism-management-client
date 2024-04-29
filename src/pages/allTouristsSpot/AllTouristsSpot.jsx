@@ -17,8 +17,9 @@ const AllTouristsSpot = () => {
             })
     }, [])
 
-    function handleSort() {
-        fetch(`${serverLink}/tourist-spots/sortby`)
+    function handleSort(e) {
+        const value = e.target.value
+        fetch(`${serverLink}/tourist-spots/sort/${value}`)
             .then(res => res.json())
             .then(data => {
                 console.log(data);
@@ -43,9 +44,14 @@ const AllTouristsSpot = () => {
                     </label>
                 </div>
 
-                <div className='flex justify-center'>
-                    <button onClick={handleSort} className='btn btn-info'>Sort By Average Cost</button>
+                <div className='flex justify-end'>
+                    <select onChange={handleSort} className="select select-primary max-w-xs">
+                        <option className='hidden' >Sort By</option>
+                        <option value="1">Average Cost (Low to High)</option>
+                        <option value="-1">Average Cost (High to Low)</option>
+                    </select>
                 </div>
+
             </div>
 
             <div className='p-3 lg:p-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 my-10'>

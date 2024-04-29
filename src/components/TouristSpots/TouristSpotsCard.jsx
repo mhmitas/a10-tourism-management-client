@@ -17,7 +17,7 @@ const TouristSpotsCard = ({ touristSpot }) => {
                         <p><strong>Travel Time: </strong>{travel_time}</p>
                         <p>By: {touristSpot.email}</p>
                     </div>
-                    <Link to={`/view-detail/${touristSpot._id}`}><button className="btn w-full btn-primary">View Detail</button></Link>
+                    <Link className='ml-auto' to={`/view-detail/${touristSpot._id}`}><button className="btn btn-sm btn-outline btn-primary">View Detail</button></Link>
 
                 </div>
             </div>

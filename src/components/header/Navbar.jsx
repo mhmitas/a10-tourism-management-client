@@ -33,7 +33,7 @@ const Navbar = () => {
                         {/* for small device */}
                     </ul>
                 </div>
-                <Link to="/" className="btn btn-ghost text-xl font-bold">RedKnot</Link>
+                <Link to="/" className="btn btn-ghost text-xl md:text-2xl font-bold">RedKnot</Link>
                 {/* <Link to="/" className="btn btn-ghost text-xl">ArcticTern</Link> */}
             </div>
             <div className="navbar-center hidden lg:flex">
