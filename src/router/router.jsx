@@ -12,6 +12,7 @@ import UpdateSpot from "../pages/updateSpot/UpdateSpot";
 import Profile from "../pages/profile/Profile";
 import SpotsOfCountry from "../pages/spotsOfCountry/SpotsOfCountry";
 import CountriesSpots from "../pages/spotsOfCountry/CountriesSpots";
+import NotFoundPage from "../pages/notFound/NotFoundPage";
 
 
 // const serverLink = 'http://localhost:5000'
@@ -22,6 +23,7 @@ export const router = createBrowserRouter([
     {
         path: "/",
         element: <Root></Root>,
+        errorElement: <NotFoundPage></NotFoundPage>,
         children: [
             {
                 path: "/",

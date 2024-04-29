@@ -1,18 +1,26 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../provider/AuthProvider';
 import { updateProfile } from 'firebase/auth';
 import auth from '../../firebase/firebase.config';
+import ErrorMessageInsideForm from '../../components/common/ErrorMessage';
+import toast from 'react-hot-toast';
 
 const SignUp = () => {
-    const { register, handleSubmit } = useForm()
+    const navigate = useNavigate()
+    const { register, handleSubmit, formState: { errors } } = useForm()
     const { createUser } = useContext(AuthContext)
+    const [registerError, setRegisterError] = useState(null);
+
 
     function onSubmit(data) {
         createUser(data.email, data.password)
             .then(result => {
                 console.log(result);
+                setRegisterError(null);
+                toast.success('Welcome to our coummunity')
+                navigate('/')
                 updateProfile(auth.currentUser, {
                     displayName: data.name,
                     photoURL: data['photo-url'],
@@ -22,6 +30,7 @@ const SignUp = () => {
             })
             .catch(error => {
                 console.log(error);
+                setRegisterError(error.message)
             })
     }
 
@@ -29,6 +38,7 @@ const SignUp = () => {
         <div>
             <div className=' max-w-md mx-auto p-14 my-20 bg-base-100 shadow-xl'>
                 <h3 className='text-3xl font-semibold text-center mb-6'>Sign up</h3>
+                {registerError && <ErrorMessageInsideForm text2={registerError}></ErrorMessageInsideForm>}
                 <form onSubmit={handleSubmit(onSubmit)} className='w-full '>
                     <div className="form-control ">
                         <label className="label">
@@ -57,11 +67,15 @@ const SignUp = () => {
                             <span className="label-text">Password</span>
                         </label>
                         <input
-                            type="text"
+                            {...register("password", { required: true, minLength: 6, pattern: /^(?=.*[a-z])(?=.*[A-Z]).*$/ })}
+                            type='password'
+                            className='input input-bordered'
                             required
-                            {...register("password")}
-                            className="input input-bordered"
+                            name="password"
                         />
+                        {/* validate password */}
+                        {errors.password && errors.password.type === "minLength" && (<span className='text-error'>Password should be at least 6 characters</span>)}
+                        {errors.password && errors.password.type === "pattern" && (<span className='text-error'>Please create a strong password (e.g: xY...)</span>)}
                     </div>
                     <div className="form-control">
                         <label className="label">

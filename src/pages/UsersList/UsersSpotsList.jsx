@@ -42,7 +42,7 @@ const UsersSpotsList = () => {
                     .then(data => {
                         // console.log(data);
                         if (data.deletedCount > 0) {
-                            toast('Deleted')
+                            toast.success('Deleted success')
                         }
                         const updateData = mySpotsList.filter(data => data._id !== id)
                         setMySpotsList(updateData)
