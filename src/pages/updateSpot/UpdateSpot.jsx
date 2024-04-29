@@ -19,6 +19,7 @@ const UpdateSpot = () => {
         const cost = data.average_cost
         const costNum = Number(cost)
         data.average_cost = costNum;
+        if (data.country_name === 'Select a Country') { data.country_name = country_name }
         fetch(`${serverLink}/tourist-spots/update/${loadedSpot._id}`, {
             method: 'put',
             headers: {
