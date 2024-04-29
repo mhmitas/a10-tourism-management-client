@@ -14,7 +14,7 @@ const UsersSpotCard = ({ usersSpot, handleDelete }) => {
             <tr className='*:p-3 text-center'>
                 <td>{tourist_spot_name}</td>
                 <td>{country_name}</td>
-                <td>{average_cost}</td>
+                <td>${average_cost}</td>
                 <th className=''>
                     <Link to={`/view-detail/${usersSpot._id}`}>
                         <button className="btn btn-primary btn-sm ml-2"><FaEye className='text-xl' /></button>

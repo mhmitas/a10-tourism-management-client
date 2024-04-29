@@ -152,7 +152,6 @@ const AddTouristsSpot = () => {
                             <input
                                 {...register("image")}
                                 type="text"
-                                defaultValue="https://i.ibb.co/YBpPX7j/travelars.png"
                                 required
                                 className="input input-bordered w-full col-span-2" />
                         </div>

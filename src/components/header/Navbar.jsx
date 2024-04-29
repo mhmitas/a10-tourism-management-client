@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { AuthContext } from '../../provider/AuthProvider';
+import ThemeControl from '../themeControl/ThemeControl';
 
 const Navbar = () => {
     const { user, authLoading, signOutUser } = useContext(AuthContext)
@@ -43,6 +44,7 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbar-end mr-4">
+                <ThemeControl></ThemeControl>
                 {authLoading ?
                     <span className="loading loading-ring loading-md"></span>
                     :

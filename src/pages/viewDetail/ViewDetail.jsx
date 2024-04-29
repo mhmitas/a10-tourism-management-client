@@ -9,7 +9,7 @@ const ViewDetail = () => {
     return (
         <div className=' px-3'>
             <div className="card  bg-base-200 py-6 rounded-sm">
-                <figure><img className='' src={image} alt="Album" /></figure>
+                <figure><img className='max-h-screen' src={image} alt="Album" /></figure>
                 <div className="card-body">
                     <h2 className="text-3xl font-bold">{tourist_spot_name}</h2>
                     <h2 className="card-title">{country_name}</h2>
@@ -22,7 +22,7 @@ const ViewDetail = () => {
                         {/* row 1 */}
                         <tr className='border border-base-300'>
                             <th>Average cost</th>
-                            <td>{average_cost}</td>
+                            <td>${average_cost}</td>
                         </tr>
                         {/* row 2 */}
                         <tr className="border border-base-300">
