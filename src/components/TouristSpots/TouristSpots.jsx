@@ -17,8 +17,8 @@ const TouristSpots = () => {
             })
     }, [])
     return (
-        <div className='relative min-h-96 my-10 p-3 lg:p-8'>
-            <div className='py-8 text-2xl font-bold'>
+        <div className='relative min-h-96 mb-10'>
+            <div className='py-6 text-2xl font-bold'>
                 <h3>Find best Spots for you</h3>
             </div>
             {loading ? <div className=' absolute left-1/2 top-1/2'><span className="loading loading-spinner text-primary loading-lg"></span></div> : ''}
