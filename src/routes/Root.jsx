@@ -3,6 +3,7 @@ import { Outlet } from 'react-router-dom';
 import Navbar from '../components/header/Navbar';
 import Footer from '../components/footer/Footer';
 import { Toaster } from 'react-hot-toast';
+import { Tooltip } from 'react-tooltip';
 
 const Root = () => {
     return (
@@ -13,6 +14,7 @@ const Root = () => {
                     <Outlet></Outlet>
                 </div>
                 <Toaster></Toaster>
+                <Tooltip id='my-tooltip' className='z-50'></Tooltip>
                 <Footer></Footer>
             </div>
         </div>

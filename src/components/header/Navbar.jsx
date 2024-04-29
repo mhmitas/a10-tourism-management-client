@@ -26,7 +26,7 @@ const Navbar = () => {
         <div className="navbar bg-base-100 shadow-md *:z-50">
             <div className="navbar-start">
                 <div className="dropdown">
-                    <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
+                    <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden" data-tooltip-id="my-tooltip" data-tooltip-content="Menu">
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
                     </div>
                     <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-sm w-52">
@@ -44,14 +44,14 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbar-end mr-4">
-                <ThemeControl></ThemeControl>
+                <ThemeControl ></ThemeControl>
                 {authLoading ?
                     <span className="loading loading-ring loading-md"></span>
                     :
                     user ?
                         <div className="dropdown dropdown-end">
                             <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
-                                <div className="w-10 rounded-full">
+                                <div className="w-10 rounded-full" data-tooltip-id="my-tooltip" data-tooltip-content="Profile">
                                     <img alt={user?.displayName && user.displayName} src={user?.photoURL ? user.photoURL : "https://i.ibb.co/tY0hxsg/default-profile.jpg"}
                                     />
                                 </div>

@@ -4,6 +4,7 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import { Autoplay, Navigation, Pagination } from 'swiper/modules';
+import BannerTypeWriter from '../typeWriter/TypeWriter';
 
 
 const Banner = () => {
@@ -39,7 +40,8 @@ const Banner = () => {
                 </Swiper>
                 <div className='text-2xl md:text-3xl p-3 md:p-8 lg:text-5xl text-slate-100 md:w-2/3 absolute bottom-5 left-5 z-10 shadow-2xl bg-slate-900 rounded-sm bg-opacity-20 mr-3 font-bold'
                 >
-                    RedKnot: Your travel community, wherever you roam. <br />- Explore, Share, Inspire ...
+                    RedKnot: Your travel community, wherever you roam. <br />
+                    <span className='inline-block'><BannerTypeWriter></BannerTypeWriter></span>
                 </div>
             </div>
         </>
