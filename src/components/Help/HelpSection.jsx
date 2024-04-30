@@ -1,13 +1,16 @@
 import React from 'react';
-import { FaBusAlt, FaHotel } from 'react-icons/fa';
+import { FaBusAlt, FaHotel, FaTaxi } from 'react-icons/fa';
 import { FaCableCar, FaTicket, FaTrainSubway } from 'react-icons/fa6';
 import { IoBoat, IoHome } from 'react-icons/io5';
 import { MdOutlineFlight } from 'react-icons/md';
 
 const HelpSection = () => {
     return (
-        <div className='mt-20 mb-14'>
-            <h3 className='text-2xl font-bold my-4'>Don't think how to. Just find where to. Then we are always with you!</h3>
+        <div className='my-14'>
+            <div className='my-4'>
+                <h3 className='text-2xl font-bold'><strong>Travel Made Easy!</strong> Find everything you need - </h3>
+                <p className='text-xl'>flights, hotels, activities, attractions, and more - all in one convenient place. Let's craft your dream trip together!</p>
+            </div>
             <div className='flex flex-wrap gap-6 justify-center lg:justify-between bg-base-100 p-8'>
                 <div className='flex flex-col justify-center hover:text-primary items-center'>
                     <div><MdOutlineFlight className='text-8xl' /></div>
@@ -26,7 +29,7 @@ const HelpSection = () => {
                     <p className='text-xl font-bold'>Ships</p>
                 </div>
                 <div className='flex flex-col justify-center hover:text-primary items-center'>
-                    <div><FaCableCar className='text-8xl' /></div>
+                    <div><FaTaxi className='text-8xl'></FaTaxi></div>
                     <p className='text-xl font-bold'>Cabs</p>
                 </div>
                 <div className='flex flex-col justify-center hover:text-primary items-center'>

@@ -1,5 +1,7 @@
 import React from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
+import auth from '../../firebase/firebase.config';
+import { MdEdit } from 'react-icons/md';
 
 const ViewDetail = () => {
     const loadedSpot = useLoaderData()
@@ -7,7 +9,7 @@ const ViewDetail = () => {
     const { image, tourist_spot_name, country_name, average_cost, short_description, location, seasonality, total_visitor_per_year, travel_time, email, } = loadedSpot
 
     return (
-        <div className=' px-3'>
+        <div className='mb-16 px-3'>
             <div className="card  bg-base-200 py-6 rounded-sm">
                 <figure><img className='max-h-screen' src={image} alt="Album" /></figure>
                 <div className="card-body">
@@ -16,7 +18,7 @@ const ViewDetail = () => {
                     <p>{short_description}</p>
                 </div>
             </div>
-            <div className="overflow-x-auto mb-16">
+            <div className="overflow-x-auto ">
                 <table className="table md:w-1/2 lg:w-[50%]">
                     <tbody>
                         {/* row 1 */}
@@ -45,6 +47,13 @@ const ViewDetail = () => {
                     </tbody>
                 </table>
             </div>
+            {auth.currentUser.email === email &&
+                <div className='card-actions justify-end '>
+                    <Link to={`/update-spot/${loadedSpot._id}`}>
+                        <button className="btn btn-primary mr-2"><MdEdit className='text-xl' /></button>
+                    </Link>
+                </div>
+            }
         </div>
     );
 };

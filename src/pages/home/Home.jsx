@@ -11,8 +11,8 @@ const Home = () => {
         <div>
             <Banner></Banner>
             <div className='p-3 lg:p-8'>
-                <Country></Country>
                 <HelpSection></HelpSection>
+                <Country></Country>
                 <TouristSpots></TouristSpots>
                 <div className='text-center mb-16'>
                     <Link to="/all-tourist-spots"><button className='btn btn-primary btn-outline'>Show More</button></Link>

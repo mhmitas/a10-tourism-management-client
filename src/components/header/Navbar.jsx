@@ -51,7 +51,7 @@ const Navbar = () => {
                     user ?
                         <div className="dropdown dropdown-end">
                             <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
-                                <div className="w-10 rounded-full" data-tooltip-id="my-tooltip" data-tooltip-content="Profile">
+                                <div className="w-10 rounded-full" data-tooltip-id="my-tooltip" data-tooltip-content={user.displayName}>
                                     <img alt={user?.displayName && user.displayName} src={user?.photoURL ? user.photoURL : "https://i.ibb.co/tY0hxsg/default-profile.jpg"}
                                     />
                                 </div>
