@@ -10,7 +10,7 @@ import AllTouristsSpot from "../pages/allTouristsSpot/AllTouristsSpot";
 import ViewDetail from "../pages/viewDetail/ViewDetail";
 import UpdateSpot from "../pages/updateSpot/UpdateSpot";
 import Profile from "../pages/profile/Profile";
-import SpotsOfCountry from "../pages/spotsOfCountry/SpotsOfCountry";
+// import SpotsOfCountry from "../pages/spotsOfCountry/SpotsOfCountry";
 import CountriesSpots from "../pages/spotsOfCountry/CountriesSpots";
 import NotFoundPage from "../pages/notFound/NotFoundPage";
 
